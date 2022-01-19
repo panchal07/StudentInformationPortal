@@ -1,0 +1,30 @@
+{% extends "main.html" %}
+{% block content %}
+
+<!doctype html>
+<html>
+   <body>
+     <h2 align="center"> Student Details With Grades</h2>
+      <table class="table table-striped table-dark" align="center">
+         <thead class="thead-dark">
+            <th scope="col">Student ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Grade</th>
+
+         </thead>
+
+         {% for row in rows %}
+            <tr>
+               <td>{{row['id']}}</td>
+               <td>{{row["first_name"]}}</td>
+               <td>{{row["last_name"]}}</td>
+               <td>{{row["gender"]}}</td>
+               <td>{{row['grade']}}</td>
+            </tr>
+         {% endfor %}
+      </table>
+   </body>
+</html>
+{% endblock content %}

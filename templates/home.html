@@ -1,0 +1,89 @@
+{% extends "main.html" %}
+{% block content %}
+
+
+<form action = "{{ url_for('addstudent') }}" method = "POST" align="center">
+
+    <label for="first_name">
+      <b>First Name:</b>
+    </label>
+    <input type="text" name="first_name" id="first_name" placeholder="First Name"></input>
+    <!-- <input class="form-control" type="text" placeholder="Default input"> -->
+    <br><br>
+
+    <label for="last_name">
+      <b>Last Name:</b>
+    </label>
+    <input type="text" name="last_name" id="last_name" placeholder="Last Name"></input>
+    <br><br>
+
+    <b> Gender:</b>
+     <input name="gender" type="radio" id="gm" value="M"></input>
+     <label for="gm">Male</label>
+     <input name="gender" type="radio" id="gf" value="F"></input>
+     <label for="gf">Female</label>
+   <br><br>
+    <label for="grade"><b>Grade:</b></label>
+    <input type="text" name="grade" id="grade"></input><b> /100</b>
+
+   <br><br>
+    <input type="submit" name="submit" class="btn btn-primary" value="Submit"></input>
+
+    <input type="reset" class="btn btn-primary" value="Clear"></input>
+
+</form>
+<p></p>
+<br>
+
+<ul>
+  <li class="list-group-item">
+    <form action = "{{ url_for('getList') }}" method = "GET">
+      <label for="grade">List of all Students:</label>
+      <p>
+          <input type="submit" name="submit" class="btn btn-info" value="Get the Records"></input>
+      </p>
+
+    </form>
+  </li>
+
+  <li class="list-group-item">
+    <form action = "{{ url_for('studentsPass') }}" method = "GET">
+       <label for="grade">Students with grade >= 85:</label>
+       <p>
+         <input type="submit" name="submit" class="btn btn-success" value="Get Record"></input>
+       </p>
+
+    </form>
+  </li>
+
+
+  <li class="list-group-item">
+    <form action = "{{ url_for('deleteRecord') }}" method = "POST">
+       <label for="id" >Enter the Student record to be deleted</label>
+          <input type="text" placeholder="Student ID" name="id" id="id" />
+      <p>
+        <input type="submit" class="btn btn-danger" name="submit" value="Delete"></input>
+      </p>
+    </form>
+  </li>
+
+
+  <li class="list-group-item">
+    <form action = "{{ url_for('updateRecord') }}" method = "POST">
+     <label for="grade">Enter the Grade:</label>
+        <input type="text" name="grade" id="grade"></input>
+     <label for="id">Enter the Student Id to Update his Grade:</label>
+        <input type="text" name="id" id="id"></input>
+    <p>
+        <input type="submit" name="submit" class="btn btn-warning" value="Update"></input>
+    </p>
+    </form>
+  </li>
+
+</ul>
+
+
+
+
+
+{% endblock %}
